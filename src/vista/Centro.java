@@ -15,7 +15,7 @@ class Centro extends JPanel
     {
         jltmedio = new JLabel("Tiempo medio total taxi: ");
 
-        textarea = new JTextArea(5, 100);
+        textarea = new JTextArea(5, 120);
         textarea.setEnabled(false);
         jsptextarea = new JScrollPane(textarea);
         
