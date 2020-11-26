@@ -21,9 +21,9 @@ class norte extends JPanel
         jlipservidor = new JLabel("Dirección Ip \ndel servidor: ");
         
         jttaxis = new JTextField(5);
-        jttaxis.setText("100");
+        jttaxis.setText("500");
         jtntaxisgrupo = new JTextField(5);
-        jtntaxisgrupo.setText("10");
+        jtntaxisgrupo.setText("50");
         jtiteraciones = new JTextField(5);
         jtiteraciones.setText("10");
         jtpuertos = new JTextField(5);

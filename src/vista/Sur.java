@@ -6,7 +6,7 @@ import javax.swing.*;
 
 class Sur extends JPanel 
 {
-    private JButton inicio, salir;
+    private JButton inicio, salir,act;
     
     /**
      * Constructor
@@ -17,8 +17,11 @@ class Sur extends JPanel
         inicio.setActionCommand("inicio");
         salir = new JButton("Cerrar");
         salir.setActionCommand("salir");
+        act = new JButton("Actualizar");
+        act.setActionCommand("act");
         
         add(inicio);
+        add(act);
         add(salir);
         this.setVisible(true);
     }
@@ -31,5 +34,7 @@ class Sur extends JPanel
     {
         inicio.addActionListener(actionListener);
         salir.addActionListener(actionListener);
+        act.addActionListener(actionListener);
+       
     }
 }

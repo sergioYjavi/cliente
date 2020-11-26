@@ -1,4 +1,3 @@
-
 package modelo;
 
 import java.io.DataOutputStream;
@@ -9,25 +8,15 @@ import java.util.concurrent.Executors;
 
 public class TaxiMain
 {
-    //Iteración de los taxis.
     private int iteracion = 0;
-    //taxis que han acabado la iteración.
-     private int taxiAcabado = 0;
-    //Tiempo medio de cada taxi.
+    private int taxiAcabado = 0;
     private long [] tiempoMedio;
-    //Acabado todas las iteraciones.
     private static boolean noAcabar = true;
-    //puerto de conexión.
     private static int PORT;
-    //número de taxis que conectarán.
     private static int MAX_TAXI;
-    //Nº Taxis por grupo
     private static int MAX_TAXI_GRUPO;
-    //número de iteraciones.
     private static int ITERACIONES;
-    //Ipservidor
     private static String IP;
-    //Constructor
     public TaxiMain(int PORT, int MAX_TAXI, int MAX_TAXI_GRUPO
             , int ITERACIONES, String IP)
     {
@@ -37,6 +26,7 @@ public class TaxiMain
         this.ITERACIONES = ITERACIONES;
         this.IP = IP;
         tiempoMedio = new long[MAX_TAXI];
+        
         iniciar();
     }
 
@@ -47,21 +37,18 @@ public class TaxiMain
         for(int i = 0; i < MAX_TAXI; i++)
         {
            tiempoMedio[i] = 0;
-           pool.execute(new Thread(this, PORT , MAX_TAXI,MAX_TAXI_GRUPO, ITERACIONES, IP));
+           pool.execute(new TaxiThread(this, PORT , MAX_TAXI , 
+                   MAX_TAXI_GRUPO, ITERACIONES, IP));
         }
     }
 
-    //mensaje de conectado al taxi
- 
     protected synchronized void escribir(String msg, DataOutputStream out) 
             throws IOException 
     {
         out.writeUTF(msg);
         out.flush();
-        
     }
 
-    // Envía las coordenadas(msg)
     protected synchronized long enviaCoordenadas(String msg, 
             DataOutputStream out) throws IOException
     {
@@ -70,12 +57,11 @@ public class TaxiMain
         return System.currentTimeMillis();
     }
     
-    //Iteracion actual
     protected synchronized int getIteracion() 
     {
         return iteracion;
     }
-       
+    
   
     protected synchronized boolean sumaIteracion(long tiempo) throws Throwable 
     {
@@ -94,14 +80,12 @@ public class TaxiMain
         }
         return true;
     }
+
     
-    //iteraciones acabadadas
     protected boolean comprobarIteracion() 
     {
         return iteracion < ITERACIONES;
     }
-    
-    //Tiempos médidos
     public String getTiemposMedios()
     {
         String ret = "";
@@ -114,7 +98,6 @@ public class TaxiMain
         return ret;
     }
 
-   //finalizado simulación
     public boolean getNoAcabar() 
     {
         return noAcabar;
