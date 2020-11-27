@@ -14,6 +14,7 @@ public class Vista extends JFrame
     public Vista()
     {
         this.setLayout(new BorderLayout());
+        this.setTitle("Cliente de la Aplicación.");
         panelnorte = new norte();
         panelsur = new Sur();
         panelcentro = new Centro();
@@ -21,7 +22,8 @@ public class Vista extends JFrame
         this.add(panelnorte,BorderLayout.NORTH);
         this.add(panelsur,BorderLayout.SOUTH);
         this.add(panelcentro,BorderLayout.CENTER);
-        this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        this.setExtendedState(JFrame.NORMAL);
+        this.setSize(700, 600);
         this.setVisible(true);
     }
     
