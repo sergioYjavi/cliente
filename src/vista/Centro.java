@@ -11,26 +11,34 @@ class Centro extends JPanel
     private JTextArea textarea;
     private JScrollPane jsptextarea;
     
+    private JPanel norte;
+    private JPanel sur;
+    
     public Centro()
+ 
     {
+        norte = new JPanel();
+        sur = new JPanel();
+        
         jltmedio = new JLabel("Tiempo medio total taxi: ");
 
-        textarea = new JTextArea(5, 120);
+        textarea = new JTextArea(10, 50);
         textarea.setEnabled(false);
         jsptextarea = new JScrollPane(textarea);
         
         
         jltitulo = new JLabel("TAXI");
-        jltitulo.setFont(new Font("Serif", Font.BOLD, 30)); jltitulo.setForeground(Color.RED); 
+        jltitulo.setFont(new Font("Serif", Font.BOLD, 30)); 
 
-        jltitulografica = new JLabel("GRÁFICA");
-        jltitulo.setFont(new Font("Serif", Font.BOLD, 30)); jltitulo.setForeground(Color.BLUE); 
-
+        norte.setLayout(new BoxLayout(norte,BoxLayout.Y_AXIS));
         
-        add(jltmedio);
-        add(jsptextarea);
-        add(jltitulo);        
-        add(jltitulografica);        
+        norte.add(jltitulo);        
+ 
+        norte.add(jltmedio);
+        sur.add(jsptextarea);
+            
+        add(norte);
+        add(sur);
         
         this.setVisible(true);
     }
