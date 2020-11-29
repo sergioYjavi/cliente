@@ -30,6 +30,11 @@ public class TaxiThread implements Runnable
     {
         try 
         {
+            
+            if (MAX_TAXI%2==0){
+                Socket socket = new Socket(IP, 12346);
+            
+            }
             Socket socket = new Socket(IP, PORT);
             String msg = "ACK1;" + getCoordenadaAleatoria();
             int cuentaTaxi = 0, cuentaCoordenadas = 0;
@@ -79,6 +84,7 @@ public class TaxiThread implements Runnable
             socket.close();
             in.close();
             out.close();
+            
         }
         catch (Exception e) 
         {
