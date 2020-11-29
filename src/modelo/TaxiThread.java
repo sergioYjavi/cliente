@@ -76,6 +76,9 @@ public class TaxiThread implements Runnable
                     break;
                 }
             }
+            socket.close();
+            in.close();
+            out.close();
         }
         catch (Exception e) 
         {
