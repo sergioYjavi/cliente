@@ -116,4 +116,18 @@ public class TaxiThread implements Runnable
         String coordenada = "MÁS CERCANO: (TAXI: " + mitaxi +",GPS: " + ptox +", " + ptoy + ", " + ptoz + ") ";
         return coordenada;
     }
+    
+    
+    public static String getTaxislibres()
+    {
+        Random random = new Random();
+        int mitaxi=0;
+        int diferencia=0;
+        mitaxi = random.nextInt(MAX_TAXI)%(MAX_TAXI+1);
+        diferencia = MAX_TAXI - mitaxi;
+        String coordenada = "TAXIS LIBRES: (TOTAL: " + mitaxi +" OCUPADOS " + diferencia +") ";
+        return coordenada;
+    }
+    
+    
 }

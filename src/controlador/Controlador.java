@@ -50,6 +50,7 @@ public class Controlador
                 case "act":
                     vista.setTiempoMedio(taxiMain.getTiemposMedios());
                     vista.setCoordenadas(taxiMain.getCoordenadas());
+                    vista.setTaxiLibre(taxiMain.getTaxiLibre());
                 break;
                 default:
                     System.out.println("Comando ’" + 

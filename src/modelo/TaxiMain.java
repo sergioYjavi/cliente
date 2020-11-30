@@ -111,4 +111,11 @@ public class TaxiMain
         return TaxiThread.getCoordenadaAleatoria();
         
     }
+    
+    public String getTaxiLibre() {
+    
+        return TaxiThread.getTaxislibres();
+        
+    }
+    
 }

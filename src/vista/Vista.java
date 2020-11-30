@@ -23,7 +23,7 @@ public class Vista extends JFrame
         this.add(panelsur,BorderLayout.SOUTH);
         this.add(panelcentro,BorderLayout.CENTER);
         this.setExtendedState(JFrame.NORMAL);
-        this.setSize(700, 600);
+        this.setSize(1000, 700);
         this.setVisible(true);
     }
     
@@ -84,6 +84,10 @@ public class Vista extends JFrame
         panelcentro.setCoordenadas(coordenadas);
     }
     
+    
+    public void setTaxiLibre(String libre){
+        panelcentro.setTaxiLibre(libre);
+    }
     
     
 }

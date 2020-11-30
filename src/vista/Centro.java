@@ -10,8 +10,8 @@ import modelo.Valores;
 class Centro extends JPanel 
 {
     private JLabel jltmedio,jltitulo,jltitulografica;
-    private JTextArea textarea, textarea2;
-    private JScrollPane jsptextarea,jsptextarea2;
+    private JTextArea textarea, textarea2,textarea3;
+    private JScrollPane jsptextarea,jsptextarea2,jsptextarea3;
     
     private JPanel norte;
     private JPanel sur;
@@ -25,7 +25,7 @@ class Centro extends JPanel
         
         jltmedio = new JLabel("Tiempo medio total taxi: ");
 
-        textarea = new JTextArea(10, 30);
+        textarea = new JTextArea(10, 20);
         textarea.setEnabled(false);
         jsptextarea = new JScrollPane(textarea);
         
@@ -33,6 +33,12 @@ class Centro extends JPanel
         textarea2 = new JTextArea(10, 30);
         textarea2.setEnabled(false);
         jsptextarea2 = new JScrollPane(textarea2);
+        
+        
+        textarea3 = new JTextArea(10, 30);
+        textarea3.setEnabled(false);
+        jsptextarea3 = new JScrollPane(textarea3);
+        
         
         jltitulo = new JLabel("TAXI");
         jltitulo.setFont(new Font("Serif", Font.BOLD, 30)); 
@@ -44,6 +50,7 @@ class Centro extends JPanel
         norte.add(jltmedio);
         sur.add(jsptextarea);
         sur.add(jsptextarea2);
+        sur.add(jsptextarea3);
         
             
         add(norte);
@@ -64,6 +71,14 @@ class Centro extends JPanel
     {
         textarea2.setText(coordenadas);
     }
+    
+    
+    public void setTaxiLibre(String libre) 
+    {
+        textarea3.setText(libre);
+    }
+    
+    
     
     public int getCoordenada()
     {
