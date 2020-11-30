@@ -3,16 +3,19 @@ package vista;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.*;
+import modelo.TaxiThread;
+import modelo.Valores;
 
 
 class Centro extends JPanel 
 {
     private JLabel jltmedio,jltitulo,jltitulografica;
-    private JTextArea textarea;
-    private JScrollPane jsptextarea;
+    private JTextArea textarea, textarea2;
+    private JScrollPane jsptextarea,jsptextarea2;
     
     private JPanel norte;
     private JPanel sur;
+        
     
     public Centro()
  
@@ -22,10 +25,14 @@ class Centro extends JPanel
         
         jltmedio = new JLabel("Tiempo medio total taxi: ");
 
-        textarea = new JTextArea(10, 50);
+        textarea = new JTextArea(10, 30);
         textarea.setEnabled(false);
         jsptextarea = new JScrollPane(textarea);
         
+        
+        textarea2 = new JTextArea(10, 30);
+        textarea2.setEnabled(false);
+        jsptextarea2 = new JScrollPane(textarea2);
         
         jltitulo = new JLabel("TAXI");
         jltitulo.setFont(new Font("Serif", Font.BOLD, 30)); 
@@ -36,6 +43,8 @@ class Centro extends JPanel
  
         norte.add(jltmedio);
         sur.add(jsptextarea);
+        sur.add(jsptextarea2);
+        
             
         add(norte);
         add(sur);
@@ -51,4 +60,16 @@ class Centro extends JPanel
     {
         textarea.setText(tiempoMedioTotextareal);
     }
+    public void setCoordenadas(String coordenadas) 
+    {
+        textarea2.setText(coordenadas);
+    }
+    
+    public int getCoordenada()
+    {
+        return 0;
+    }
+
+    
+
 }

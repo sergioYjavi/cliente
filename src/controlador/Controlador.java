@@ -49,6 +49,7 @@ public class Controlador
                 break;
                 case "act":
                     vista.setTiempoMedio(taxiMain.getTiemposMedios());
+                    vista.setCoordenadas(taxiMain.getCoordenadas());
                 break;
                 default:
                     System.out.println("Comando ’" + 

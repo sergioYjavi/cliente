@@ -17,6 +17,7 @@ public class TaxiMain
     private static int MAX_TAXI_GRUPO;
     private static int ITERACIONES;
     private static String IP;
+    
     public TaxiMain(int PORT, int MAX_TAXI, int MAX_TAXI_GRUPO
             , int ITERACIONES, String IP)
     {
@@ -50,7 +51,7 @@ public class TaxiMain
     }
 
     protected synchronized long enviaCoordenadas(String msg, 
-            DataOutputStream out) throws IOException
+        DataOutputStream out) throws IOException
     {
         out.writeUTF(msg);
         out.flush();
@@ -98,8 +99,16 @@ public class TaxiMain
         return ret;
     }
 
+       
+    
     public boolean getNoAcabar() 
     {
         return noAcabar;
+    }
+
+    public String getCoordenadas() {
+    
+        return TaxiThread.getCoordenadaAleatoria();
+        
     }
 }

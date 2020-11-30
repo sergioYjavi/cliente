@@ -15,6 +15,7 @@ public class TaxiThread implements Runnable
     private static int MAX_TAXI_GRUPO;
     private static int ITERACIONES;
     private static String IP;
+    
     TaxiThread(TaxiMain tm, int PORT, int MAX_TAXI, 
             int MAX_TAXI_GRUPO, int ITERACIONES, String IP) 
     {
@@ -53,6 +54,7 @@ public class TaxiThread implements Runnable
                     }
                     msg = in.readUTF();
                 }
+                
                 while(!msg.substring(0,3).equals("ACK") || !noAcabar);
                 
                 s = msg.split(";");
@@ -76,6 +78,12 @@ public class TaxiThread implements Runnable
                             }
                     break;
                 }
+            if(socket == null){
+                
+                System.out.println("Socket nulo");
+
+            }    
+
             }
             socket.close();
             in.close();
@@ -85,21 +93,27 @@ public class TaxiThread implements Runnable
         catch (Exception e) 
         {
             System.out.println("Excepcion : " + e);
+            e.printStackTrace(); 
+
         } 
         catch (Throwable ex) 
         {
             System.out.println("Excepcion : " + ex);
         }
+        
+            
     }
     
     public static String getCoordenadaAleatoria()
     {
         Random random = new Random();
-        int ptox, ptoy, ptoz;
-        ptox = random.nextInt(102)%(101);
-        ptoy = random.nextInt(102)%(101);
-        ptoz = random.nextInt(102)%(101);
-        String coordenada = "(" + ptox +", " + ptoy + ", " + ptoz + ") ";
+        int ptox, ptoy, ptoz = 0;
+        int mitaxi=0;
+        ptox = random.nextInt(1002)%(1001);
+        ptoy = random.nextInt(1002)%(1001);
+        ptoz = random.nextInt(1002)%(1001);
+        mitaxi = random.nextInt(MAX_TAXI)%(MAX_TAXI+1);
+        String coordenada = "MÁS CERCANO: (TAXI: " + mitaxi +",GPS: " + ptox +", " + ptoy + ", " + ptoz + ") ";
         return coordenada;
     }
 }

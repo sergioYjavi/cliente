@@ -80,5 +80,10 @@ public class Vista extends JFrame
        panelcentro.setTiempoMedio(tiempoMedioTotal);
     }
     
+    public void setCoordenadas(String coordenadas){
+        panelcentro.setCoordenadas(coordenadas);
+    }
+    
+    
     
 }
