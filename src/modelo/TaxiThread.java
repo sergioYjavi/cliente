@@ -44,6 +44,7 @@ public class TaxiThread implements Runnable
             ++cuentaCoordenadas;
             while(noAcabar)
             {
+              
                 do
                 {
                     if(cuentaTaxi == MAX_TAXI - 1 && (cuentaCoordenadas < ITERACIONES))
@@ -54,7 +55,7 @@ public class TaxiThread implements Runnable
                     }
                     msg = in.readUTF();
                 }
-                
+               
                 while(!msg.substring(0,3).equals("ACK") || !noAcabar);
                 
                 s = msg.split(";");
@@ -75,6 +76,8 @@ public class TaxiThread implements Runnable
                                out.writeUTF("ACK;" + num);
                            
                                noAcabar = tm.sumaIteracion(num);
+                                
+                                
                             }
                     break;
                 }
@@ -83,7 +86,7 @@ public class TaxiThread implements Runnable
                 System.out.println("Socket nulo");
 
             }    
-
+            
             }
             socket.close();
             in.close();
